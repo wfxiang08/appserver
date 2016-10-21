@@ -1,0 +1,13 @@
+[Unit]
+Description=apps server online version
+After=network.target
+
+[Service]
+WorkingDirectory=/home/chunyu/goprojects/apps/src/git.chunyu.me/feiwang/appserver
+ExecStart=/home/chunyu/goprojects/apps/src/git.chunyu.me/feiwang/appserver/main -L /home/chunyu/apps.log
+
+User=root
+Group=root
+
+[Install]
+WantedBy=multi-user.target

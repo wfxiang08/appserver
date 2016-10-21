@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Label</key>
+    <string>me.chunyu.apps</string>
+    <key>RunAtLoad</key>
+    <true/>
+    <key>WorkingDirectory</key>
+    <string>/Users/chunyu/goprojects/apps/src/git.chunyu.me/feiwang/appserver</string>
+    <key>ProgramArguments</key>
+    <array>
+           <string>./main</string>
+           <string> -L </string>
+           <string> /Users/chunyu/goprojects/apps.log </string>
+    </array>
+</dict>
+</plist>

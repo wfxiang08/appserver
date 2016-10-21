@@ -1,0 +1,19 @@
+<div class="app-info">
+  <div class="app-icon">
+    <img src="{{android_app.AppIcon}}" onerror="this.style.display = 'none'"/>
+  </div>
+  <div class="meta-info">
+    <div class="title"><nobr>{{android_app.Name}}</nobr></div>
+    <div class="desc">
+      <nobr><span class="key" style="width:0.5rem;">Id: </span><span class="app-id">{{android_app.Id}}</span></nobr><br/>
+      <span class="key">Version: </span>{{android_app.Version}}<br/>
+      <span class="key">Size: </span>{{android_app.Size}}<br/>
+      <span class="key">Released: </span>{{android_app.ReleaseDate}}
+    </div>
+  </div>
+</div>
+<div class="download-btns clearfix">
+  <a href="{{android_app.Apk}}" target="_blank">下载</a>
+  <a class="view-history" href="/api/hisotry/" target="_blank">更多</a>
+</div>
+

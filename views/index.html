@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html style="font-size: 50px;">
+<head>
+  <title>欢迎使用春雨App Server</title>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width,initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+  <link rel="stylesheet" href="/static/css/reset.css"/>
+  <style type="text/css">
+
+    html {
+      background: #eee
+    }
+
+    body {
+      width: 7.5rem
+    }
+
+    body {
+      width: 100%;
+    }
+
+    .body-content {
+      margin: 0 auto;
+      background-color: #fff;
+      padding-bottom: 1rem;
+    }
+
+    .mobile .body-content {
+      width: 7.5rem;
+    }
+
+    .web .body-content {
+      width: 1024px;
+    }
+
+    .header {
+      background: #f7f7f7;
+      position: relative;
+      height: 90px;
+      padding: 8px 10px;
+      color: #56bc94;
+      border-bottom: 1px solid #eee;
+    }
+
+    .mobile.header {
+      height: 0.6rem;
+    }
+
+    .navi {
+      height: 0.5rem;
+      font-size: 0.4rem;
+    }
+
+    .navi a {
+      text-decoration: underline;
+      color: #000;
+      padding: 5px 10px;
+      margin: 0;
+      display: inline-block;
+      font-size: 0.4rem;
+    }
+
+    .navi span {
+      color: #f00;
+      display: inline-block;
+      padding: 5px 10px;
+      font-size: 0.4rem;
+    }
+
+    .mobile.app_item {
+      height: 3.4rem;
+    }
+
+    .web.app_item {
+      width: 510px; /* (1024 - 4) / 2*/
+      float: left;
+      background-color: #fff;
+    }
+
+    .web.app_item:nth-child(even) {
+      border-left: 4px solid #e4e4e4;
+    }
+
+    .clearfix:after {
+      content: "";
+      display: block;
+      clear: both
+    }
+
+    .app-id {
+      font-size: 0.23rem;
+      line-height: 0.23rem;
+      display: inline-block;
+      width: 5rem;
+      overflow: hidden;
+    }
+
+    .app-info {
+      padding: 0.2rem 0.16rem;
+    }
+    
+    .app-info .app-icon {
+      width: 1rem;
+      height: 1rem;
+      float: left;
+      border: 1px solid #f4f4f4;
+      border-radius: 3px;
+    }
+    
+    .app-info .app-icon img {
+      width: 100%;
+      height: 100%;
+    }
+    
+    .meta-info {
+      position: relative;
+      margin-left: 1.3rem;
+    }
+    
+    .meta-info .title {
+      line-height: 0.42rem;
+      height: 0.4rem;
+      font-size: 0.3rem;
+
+    }
+    
+    .meta-info .desc {
+      font-size: 0.28rem;
+      line-height: 0.4rem;
+      margin: 5px 0;
+      color: #777;
+    }
+
+    .meta-info .desc .key {
+      display: inline-block;
+      width: 1.4rem;
+    }
+
+    .download-btns {
+      border-bottom: 1px solid rgba(86, 188, 148, 0.24);
+      padding: 0.1rem 0.16rem;
+      background: #f9f9f9;
+    }
+    
+    .download-btns a {
+      display: block;
+      float: left;
+      margin: 0 15px 0 0;
+      padding: 5px 10px;
+      border: 1px solid #ebebeb;
+      border-radius: 4px;
+      background-color: #eee;
+      line-height: 130%;
+      text-decoration: none;
+      color: #966;
+      cursor: pointer;
+      font-size: 0.28rem;
+    }
+
+    .download-btns a.view-history {
+      float: right;
+      margin-right: 0px;
+
+    }
+
+    .qrcode {
+      width: 90px;
+      height: 90px;
+      position: absolute;
+      top: 0;
+      right: 0;
+    }
+
+
+  </style>
+</head>
+
+<body class="{% if is_web %} web {% else %} mobile {% endif %}">
+{% if not is_web %}
+<script type="text/javascript">
+  var Dpr = 1, uAgent = window.navigator.userAgent;
+  var isIOS = uAgent.match(/iphone/i);
+  var isAndroid = uAgent.match(/android/i);
+  var isYIXIN = uAgent.match(/yixin/i);
+  var is2345 = uAgent.match(/Mb2345/i);
+  var ishaosou = uAgent.match(/mso_app/i);
+  var isSogou = uAgent.match(/sogoumobilebrowser/ig);
+  var isLiebao = uAgent.match(/liebaofast/i);
+  var isGnbr = uAgent.match(/GNBR/i);
+  var baseSize = 15;
+  if (isIOS || isAndroid) {
+    baseSize = 7.5;
+  }
+
+
+  function resizeRoot() {
+    var wWidth = (screen.width > 0) ? (window.innerWidth >= screen.width || window.innerWidth == 0) ? screen.width : window.innerWidth : window.innerWidth, wDpr, wFsize;
+    var wHeight = (screen.height > 0) ? (window.innerHeight >= screen.height || window.innerHeight == 0) ? screen.height : window.innerHeight : window.innerHeight;
+    if (window.devicePixelRatio) {
+      wDpr = window.devicePixelRatio;
+    } else {
+      wDpr = isIOS ? wWidth > 818 ? 3 : wWidth > 480 ? 2 : 1 : 1;
+    }
+    if (isIOS) {
+      wWidth = screen.width;
+      wHeight = screen.height;
+    }
+
+    if (wWidth > wHeight) {
+      wWidth = wHeight;
+    }
+    wFsize = wWidth > 1080 ? 144 : wWidth / baseSize;
+    wFsize = wFsize > 32 ? wFsize : 32;
+    window.screenWidth_ = wWidth;
+    if (isYIXIN || is2345 || ishaosou || isSogou || isLiebao || isGnbr) {//YIXIN 和 2345 这里有个刚调用系统浏览器时候的bug，需要一点延迟来获取
+      setTimeout(function () {
+        wWidth = (screen.width > 0) ? (window.innerWidth >= screen.width || window.innerWidth == 0) ? screen.width : window.innerWidth : window.innerWidth;
+        wHeight = (screen.height > 0) ? (window.innerHeight >= screen.height || window.innerHeight == 0) ? screen.height : window.innerHeight : window.innerHeight;
+        wFsize = wWidth > 1080 ? 144 : wWidth / baseSize;
+        wFsize = wFsize > 32 ? wFsize : 32;
+        // document.getElementsByTagName('html')[0].dataset.dpr = wDpr;
+        document.getElementsByTagName('html')[0].style.fontSize = wFsize + 'px';
+        document.getElementById("fixed").style.display = "none";
+      }, 500);
+    } else {
+      // document.getElementsByTagName('html')[0].dataset.dpr = wDpr;
+      document.getElementsByTagName('html')[0].style.fontSize = wFsize + 'px';
+      document.getElementById("fixed").style.display = "none";
+    }
+  }
+
+  resizeRoot();
+</script>
+{% endif %}
+<div class="clearfix body-content">
+  <div class="header {% if not is_web %} mobile {% endif %}">
+    <div style="font-size: 0.4rem;font-weight:500;margin: 5px 0;">
+      {% if is_ios %} iOs {%endif%}
+      {% if is_android%}Android{%endif%}
+      测试包下载
+    </div>
+    {% if is_web %}
+    <div class="navi">
+      {% if platform == "iOs" %} <span>iOs</span>{% else %} <a href="/?platform=iOs">iOs</a>{% endif %}
+      {% if platform == "Android" %} <span>Android</span>{% else %} <a href="/?platform=Android">Android</a>{% endif %}
+    </div>
+    <img class="qrcode" src="/static/img/logo.png"/>
+    {% endif %}
+
+  </div>
+  <div class="app_list clearfix">
+    {# Web版 #}
+    {% if is_web %}
+    {% if platform == "iOs" %}
+    {% for ios_app in ios_app_dirs %}
+    <div class="web app_item">{% include "ios_app_item.html" %}</div>
+    {% endfor %}
+    {% else %}
+    {% for android_app in android_app_dirs %}
+    <div class="web app_item">{% include "android_app_item.html" %}</div>
+    {% endfor %}
+    {% endif %}
+    {% endif %}
+
+    {# iOs版 #}
+    {% if is_ios %}
+    {% for ios_app in ios_app_dirs %}
+    <div class="mobile app_item">{% include "ios_app_item.html" %}</div>
+    {% endfor %}
+    {% endif %}
+    {% if is_android %}
+    {% for android_app in android_app_dirs %}
+    <div class="mobile app_item">{% include "android_app_item.html" %}</div>
+    {% endfor %}
+    {% endif %}
+  </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,18 @@
+appname = appserver
+runmode = dev
+
+apps_root = /Users/feiwang/goprojects/apps/src/git.chunyu.me/feiwang/appserver/apps_root
+server_host = ios.chunyu.me
+
+# http
+EnableHTTP=true
+HTTPAddr=ios.chunyu.me
+httpport = 8080
+
+# https
+EnableHTTPS=false
+HTTPSAddr=ios.chunyu.me
+HTTPSPort=443
+HTTPSCertFile=conf/chunyu.me.crt
+HTTPSKeyFile=conf/chunyu.me.key
+

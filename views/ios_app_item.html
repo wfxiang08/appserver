@@ -1,0 +1,20 @@
+<div class="app-info">
+  <div class="app-icon">
+    <img src="{{ios_app.AppIcon}}" onerror="this.style.display = 'none'"/>
+  </div>
+  <div class="meta-info">
+    <div class="title"><nobr>{{ios_app.Name}}</nobr></div>
+    <div class="desc">
+      <nobr><span class="key" style="width:0.5rem;">Id: </span><span class="app-id">{{ios_app.Id}}</span></nobr><br/>
+      <span class="key">Version: </span>{{ios_app.Version}}<br/>
+      <span class="key">Size: </span>{{ios_app.Size}}<br/>
+      <span class="key">Released: </span>{{ios_app.ReleaseDate}}
+    </div>
+  </div>
+</div>
+<div class="download-btns clearfix">
+  <a href="{% if ios_app.MobileProvision %}{{ios_app.MobileProvision}} {% else %}javascript:void(0){% endif %}" target="_blank" {% if not ios_app.MobileProvision %} style="color:gray;cursor:text;" {% endif %}>下载Profile</a>
+  <a href="{{ios_app.Plist|itemservice_url|safe}}" target="_blank">下载App</a>
+  <a class="view-history" href="/api/hisotry/" target="_blank">更多</a>
+</div>
+

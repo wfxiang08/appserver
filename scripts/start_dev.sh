@@ -1,0 +1,1 @@
+bee run -main main.go

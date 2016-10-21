@@ -1,0 +1,16 @@
+/main
+/log/
+/lib/python/dist/
+/lib/python/rpc_proxy.egg-info/
+/lib/java/target
+.idea
+*.pyc
+/gen-py
+/rpc_lb
+/rpc_proxy
+/demo/file_upload
+/src/file_upload
+/src/db_sync
+/src/cmds/db_sync
+/.godeps
+app.conf
